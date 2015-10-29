@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebTest", "WebTest\WebTest.csproj", "{32AFAB69-432F-491B-9142-6F8B94C35044}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BundleTransformer.BabelJS", "BundleTransformer.BabelJS\BundleTransformer.BabelJS.csproj", "{E4E3F59C-778D-4512-8BD4-8032A387C1A4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32AFAB69-432F-491B-9142-6F8B94C35044}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32AFAB69-432F-491B-9142-6F8B94C35044}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32AFAB69-432F-491B-9142-6F8B94C35044}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32AFAB69-432F-491B-9142-6F8B94C35044}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4E3F59C-778D-4512-8BD4-8032A387C1A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4E3F59C-778D-4512-8BD4-8032A387C1A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4E3F59C-778D-4512-8BD4-8032A387C1A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4E3F59C-778D-4512-8BD4-8032A387C1A4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
