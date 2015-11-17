@@ -161,7 +161,8 @@ namespace BundleTransformer.BabelJS.Translators
             {
                 Comments = settings.Comments,
                 Compact = settings.Compact,
-                HighlightCode = settings.HighlightCode
+                HighlightCode = settings.HighlightCode,
+                SourceMaps = settings.SourceMaps
             };
         }
     }

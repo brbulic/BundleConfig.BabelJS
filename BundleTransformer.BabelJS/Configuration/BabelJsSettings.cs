@@ -3,6 +3,13 @@ using BundleTransformer.Core.Configuration;
 
 namespace BundleTransformer.BabelJS.Configuration
 {
+    public enum SourceMaps
+    {
+        Property,
+        Inline,
+        Both
+    }
+
     /// <summary>
     /// Configuration settings of EcmaScript2015 BabelJS translator
     /// </summary>
@@ -36,6 +43,13 @@ namespace BundleTransformer.BabelJS.Configuration
         {
             get { return (bool)this["highlightCode"]; }
             set { this["highlightCode"] = value; }
+        }
+
+        [ConfigurationProperty("sourceMaps", DefaultValue = null)]
+        public SourceMaps? SourceMaps
+        {
+            get { return (SourceMaps) this["sourceMaps"]; }
+            set { this["sourceMaps"] = value; }
         }
     }
 }

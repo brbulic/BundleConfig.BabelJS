@@ -21,7 +21,7 @@ namespace BundleTransformer.BabelJS.Compilers
         private IJsEngine _jsEngine;
         private bool _initialized;
 
-        private readonly string _defaultOptionsString;
+        private readonly BabelJsCompilationOptions _defaultOptions;
         private readonly object _compilationSynchronizer = new object();
 
         public BabelJsCompiler(Func<IJsEngine> createJsEngineInstance)
@@ -33,8 +33,7 @@ namespace BundleTransformer.BabelJS.Compilers
         public BabelJsCompiler(Func<IJsEngine> createJsEngineInstance, BabelJsCompilationOptions options)
         {
             _jsEngine = createJsEngineInstance();
-            _defaultOptionsString = (options != null) ?
-                ConvertCompilationOptionsToJson(options).ToString() : "null";
+            _defaultOptions = options ?? new BabelJsCompilationOptions();
         }
 
         /// <summary>
@@ -42,15 +41,12 @@ namespace BundleTransformer.BabelJS.Compilers
         /// </summary>
         /// <param name="options">Compilation options</param>
         /// <returns>Compilation options in JSON format</returns>
-        private static JObject ConvertCompilationOptionsToJson(BabelJsCompilationOptions options)
+        private static JObject ConvertCompilationOptionsToJson(BabelJsCompilationOptions options, string fileName)
         {
-            var optionsJson = new JObject(
-                new JProperty("comments", options.Comments),
-                new JProperty("highlightCode", options.HighlightCode),
-                new JProperty("compact", options.Compact)
-            );
+            var configuration = options.ToJObject();
+            configuration.Add("filename", fileName);
 
-            return optionsJson;
+            return configuration;
         }
 
         /// <summary>
@@ -72,8 +68,7 @@ namespace BundleTransformer.BabelJS.Compilers
         public string Compile(string content, string path, BabelJsCompilationOptions options = null)
         {
             string newContent;
-            string currentOptionsString = (options != null) ?
-                ConvertCompilationOptionsToJson(options).ToString() : _defaultOptionsString;
+            var currentOptionsString = ConvertCompilationOptionsToJson(options ?? _defaultOptions, path).ToString(Formatting.None);
 
             lock (_compilationSynchronizer)
             {
